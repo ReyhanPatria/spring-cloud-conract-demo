@@ -5,11 +5,16 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
+import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties.StubsMode;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = WebEnvironment.NONE)
+@AutoConfigureStubRunner(stubsMode = StubsMode.LOCAL, 
+        ids = {"com.example:producer:+:stubs:8080"})
 public class LoanTests {
     @Autowired
     public LoanService loanService;
@@ -17,13 +22,13 @@ public class LoanTests {
     @Test
     public void shouldSucceedFraudCheck() {
         // given:
-        Integer loanAmount = 1000000;
+        Integer loanAmount = 1000000000;
 
         // when:
-        Boolean result = loanService.apply(loanAmount);
+        Map<String, String> result = loanService.apply(loanAmount);
 
         // then:
-        assertTrue(result);
+        assertEquals(result.get("fraud"), "false");
     }
 
     @Test
@@ -32,9 +37,9 @@ public class LoanTests {
         Integer loanAmount = 1000000000;
 
         // when:
-        Boolean result = loanService.apply(loanAmount);
+        Map<String, String> result = loanService.apply(loanAmount);
 
         // then:
-        assertFalse(result);
+        assertEquals(result.get("fraud"), "true");
     }
 }
