@@ -28,18 +28,18 @@ public class LoanTests {
         Map<String, String> result = loanService.apply(loanAmount);
 
         // then:
-        assertEquals(result.get("fraud"), "false");
+        assertEquals(result.get("fraud"), "true");
     }
 
     @Test
     public void shouldFailFraudCheck() {
         // given:
-        Integer loanAmount = 1000000000;
+        Integer loanAmount = 99999999;
 
         // when:
         Map<String, String> result = loanService.apply(loanAmount);
 
         // then:
-        assertEquals(result.get("fraud"), "true");
+        assertEquals(result.get("fraud"), "false");
     }
 }
