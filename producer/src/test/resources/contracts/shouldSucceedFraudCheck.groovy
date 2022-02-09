@@ -10,7 +10,7 @@ Contract.make {
 			contentType(applicationJson())
 		}
         body (
-			amount: 1000000000
+			amount: regex("[1-9][0-9]{9,}")
 		)
     }
 
