@@ -60,6 +60,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<testFramework>JUNIT5</testFramework>
+					<baseClassForTests>com.example.producer.BaseTest</baseClassForTests>
 				</configuration>
 			</plugin>
 			<plugin>
