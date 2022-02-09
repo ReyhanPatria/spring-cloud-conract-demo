@@ -4,8 +4,10 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "FraudRepository", url = "https://localhost:8080")
+import java.util.Map;
+
+@FeignClient(name = "FraudRepository", url = "http://localhost:8080")
 public interface FraudRepository {
     @PostMapping("/fraud/check")
-    public Boolean checkApplication(@RequestBody Integer amount);
+    public Map<String, String> checkApplication(@RequestBody Map<String, Integer> amount);
 }
