@@ -15,3 +15,8 @@ In Spring Cloud Contract the contract is published by the producer of the contra
 This approach is suited if you, as a consumer, don't have access to the producer application itself. As the consumer you can have the certainty of how endpoints will behave as it is issued by the producer, and as the producer help he consumer to use your services as intended. But a limitation to this is if any endpoints have complex logic and many possible response, it takes a lot of effort on the producer to issue the many contracts needed to comply to all possible usecase, and as the consumer you are limited to the contracts the producers issued.
 
 The consumer driven approach section will explain in more detail on how the consumer can affect the contracts being issued.
+
+# Consumer Driven Approach
+A consumer driven approach needs the consumer to be able to access the producer project, or at least the consumer to be able to issue contact pull requests to the prodcuer application. Because in a consumer driven approach the ones making the contracts will be the consumer, to more effectively cover the consumer needs and not swamp the producer to make contracts to cover all possible usecase.
+
+The flow of a consumer driven approach is first the consumer make a test on its application, then the consumer team forks the producers application and make contracts based on their needs and create a pull request to publish those contracts, then the producer team will review the pull request and run it through tests to make sure the contracts comply to the actual implementatin, if it complies then the producer then merge the pull request then publish the contracts for use by the consumer and other consumers as well.
