@@ -9,6 +9,9 @@ A contract as defined in [Spring Cloud Contract documentation](https://docs.spri
 
 There are two approaches in implementing the use of cotnracts in your projects. A producer driven approach and a consumer driven approach.
 
+# How to write contracts
+The Spring Cloud Contract project facilitates writing contracts in multiple formats, the main format that's supported is Groovy. You can write contracts then immedieately publish it, but the standard is to test the contract you've written so as to make sure it complies with the implementation itself. Spring Cloud Contract provide contract testing as a plugin for Maven which you'll need to add to your project to use in addition to the Spring Cloud Contract dependecy itself.
+
 # Producer Driven Approach
 In Spring Cloud Contract the contract is published by the producer of the contract. The contracts define the response that'll be sent from the producers endpoints. So a simple approach for implementing contracts in your projects is for the producer to issue contracts on how its endpoints will behave, then the consuming application can use the contracts directly.
 
