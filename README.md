@@ -4,6 +4,8 @@ This is a demo project on the use of Spring Cloud Contract. This project contain
 # Project Setup
 Both the producer and the consumer is built using Spring Boot version 2.5.9 and Java 8. The Spring Cloud Contract dependency and plugin version is following the the Spring Cloud 3.0.5 release train.
 
+To use the project you'll need to install the producer project first using `mvn clean install` or `mvn clean install -DskipTests`, then it'll install the contract stubs `.jar` into your maven repository. 
+
 # Contracts
 A contract as defined in [Spring Cloud Contract documentation](https://docs.spring.io/spring-cloud-contract/docs/3.0.5/reference/html/getting-started.html#getting-started-what-is-a-contract), is an agreement on how the API or message communication should look. In other words it is the agreed upon message shape that the procucer will produce and the consumer will consume.
 
