@@ -4,7 +4,7 @@ This is a demo project on the use of Spring Cloud Contract. This project contain
 # Project Setup
 Both the producer and the consumer is built using Spring Boot version 2.5.9 and Java 8. The Spring Cloud Contract dependency and plugin version is following the the Spring Cloud 3.0.5 release train.
 
-To use the project you'll need to install the producer project first using `mvn clean install` or `mvn clean install -DskipTests`, then it'll install the contract stubs `.jar` into your maven repository. 
+To use the project you'll need to install the producer project first using `mvn clean install` or `mvn clean install -DskipTests`, then it'll install the contract stubs `.jar` into your maven repository. By not skipping the tests, the producer project will run the contracts through a base test class to verify compliance with the actual implementation.
 
 After installing the producer project then we can run the tests in the consumer project by running the `mvn clean test` command.
 
