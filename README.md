@@ -6,6 +6,8 @@ Both the producer and the consumer is built using Spring Boot version 2.5.9 and 
 
 To use the project you'll need to install the producer project first using `mvn clean install` or `mvn clean install -DskipTests`, then it'll install the contract stubs `.jar` into your maven repository. 
 
+After installing the producer project then we can run the tests in the consumer project by running the `mvn clean test` command.
+
 # Contracts
 A contract as defined in [Spring Cloud Contract documentation](https://docs.spring.io/spring-cloud-contract/docs/3.0.5/reference/html/getting-started.html#getting-started-what-is-a-contract), is an agreement on how the API or message communication should look. In other words it is the agreed upon message shape that the procucer will produce and the consumer will consume.
 
